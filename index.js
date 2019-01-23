@@ -1,13 +1,11 @@
-var cfenv = require("cfenv");
-var appEnv = cfenv.getAppEnv();
-var rabbitmqUri = appEnv.getServiceURL("notification-mq");
-var smtpUri = appEnv.getServiceURL("notification-mail");
+var rabbitmqUri = "amqp://notification-mq";
+var smtpUri = process.env.MAIL_URL;
 var amqp = require("amqplib/callback_api");
 var nodemailer = require("nodemailer");
 var transporter = nodemailer.createTransport(smtpUri);
 
 function sendMail(subject, message) {
-  var sendingAddress = appEnv.getServiceCreds("notification-mail").toAddress;
+  var sendingAddress = process.env.TO_ADDRESS;
   var mailOptions = {
     to: sendingAddress,
     subject: subject,

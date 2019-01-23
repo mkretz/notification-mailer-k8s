@@ -19,7 +19,6 @@
   "homepage": "https://github.com/mkretz/notification-mailer#readme",
   "dependencies": {
     "amqplib": "^0.5.2",
-    "cfenv": "^1.0.4",
     "nodemailer": "^4.4.1"
   },
   "engines": {

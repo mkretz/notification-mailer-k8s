@@ -1,3 +1,5 @@
+notification-mailer-config.env
+
 # Logs
 logs
 *.log
